@@ -7,6 +7,8 @@ using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
 
+
+
 namespace Mission08_3_12.Controllers
 {
     //controller
@@ -24,7 +26,7 @@ namespace Mission08_3_12.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
+        public IActionResult Quadrants()
         {
             return View();
         }
@@ -32,15 +34,15 @@ namespace Mission08_3_12.Controllers
         [HttpGet]
         public IActionResult AddEditTask()
         {
-            //ViewBag.Tasks = _movieContext.categories.ToList();
+            ViewBag.Categories = _taskContext.Categories.ToList();
 
             return View();
         }
 
-        /*
+        
 
         [HttpPost]
-        public IActionResult AddEditTask(TaskModel model)
+        public IActionResult AddEditTask(Models.Task model)
         {
             if (ModelState.IsValid)
             {
@@ -57,6 +59,8 @@ namespace Mission08_3_12.Controllers
                 return View(model);
             }
         }
+
+        /*
 
         [HttpGet]
         public IActionResult Edit(int id)
