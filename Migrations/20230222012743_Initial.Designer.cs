@@ -9,7 +9,7 @@ using Mission08_3_12.Models;
 namespace Mission08_3_12.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230222005149_Initial")]
+    [Migration("20230222012743_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -88,9 +88,27 @@ namespace Mission08_3_12.Migrations
                             TaskId = 1,
                             CategoryId = 2,
                             Completed = false,
-                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2023, 2, 22, 23, 59, 0, 0, DateTimeKind.Unspecified),
                             Quandrant = 1,
                             TaskName = "Homework for 404"
+                        },
+                        new
+                        {
+                            TaskId = 2,
+                            CategoryId = 2,
+                            Completed = false,
+                            DueDate = new DateTime(2023, 2, 23, 23, 59, 0, 0, DateTimeKind.Unspecified),
+                            Quandrant = 1,
+                            TaskName = "Authentication Lab"
+                        },
+                        new
+                        {
+                            TaskId = 3,
+                            CategoryId = 1,
+                            Completed = false,
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quandrant = 4,
+                            TaskName = "Watch TV"
                         });
                 });
 

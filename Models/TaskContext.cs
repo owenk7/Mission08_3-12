@@ -31,14 +31,29 @@ namespace Mission08_3_12.Models
             ab.Entity<Task>().HasData(
                 new Task
                 {
-
                     TaskId = 1,
                     TaskName = "Homework for 404",
-                    //DueDate = DateTime.Parse("2023-02-22", "yyyy-MM-dd"),
+                    DueDate = DateTime.ParseExact("02/22/2023 11:59 PM", "MM/dd/yyyy h:mm tt", null),
                     Quandrant = 1,
                     CategoryId = 2,
                     Completed = false
-
+                },
+                new Task
+                {
+                    TaskId = 2,
+                    TaskName = "Authentication Lab",
+                    DueDate = DateTime.ParseExact("02/23/2023 11:59 PM", "MM/dd/yyyy h:mm tt", null),
+                    Quandrant = 1,
+                    CategoryId = 2,
+                    Completed = false
+                },
+                new Task
+                {
+                    TaskId = 3,
+                    TaskName = "Watch TV",
+                    Quandrant = 4,
+                    CategoryId = 1,
+                    Completed = false
                 }
             ) ;
         }

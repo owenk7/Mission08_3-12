@@ -66,7 +66,17 @@ namespace Mission08_3_12.Migrations
             migrationBuilder.InsertData(
                 table: "Tasks",
                 columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quandrant", "TaskName" },
-                values: new object[] { 1, 2, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 1, "Homework for 404" });
+                values: new object[] { 3, 1, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Watch TV" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quandrant", "TaskName" },
+                values: new object[] { 1, 2, false, new DateTime(2023, 2, 22, 23, 59, 0, 0, DateTimeKind.Unspecified), 1, "Homework for 404" });
+
+            migrationBuilder.InsertData(
+                table: "Tasks",
+                columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quandrant", "TaskName" },
+                values: new object[] { 2, 2, false, new DateTime(2023, 2, 23, 23, 59, 0, 0, DateTimeKind.Unspecified), 1, "Authentication Lab" });
 
             migrationBuilder.CreateIndex(
                 name: "IX_Tasks_CategoryId",

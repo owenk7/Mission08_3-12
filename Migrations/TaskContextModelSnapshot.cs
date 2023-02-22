@@ -86,9 +86,27 @@ namespace Mission08_3_12.Migrations
                             TaskId = 1,
                             CategoryId = 2,
                             Completed = false,
-                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            DueDate = new DateTime(2023, 2, 22, 23, 59, 0, 0, DateTimeKind.Unspecified),
                             Quandrant = 1,
                             TaskName = "Homework for 404"
+                        },
+                        new
+                        {
+                            TaskId = 2,
+                            CategoryId = 2,
+                            Completed = false,
+                            DueDate = new DateTime(2023, 2, 23, 23, 59, 0, 0, DateTimeKind.Unspecified),
+                            Quandrant = 1,
+                            TaskName = "Authentication Lab"
+                        },
+                        new
+                        {
+                            TaskId = 3,
+                            CategoryId = 1,
+                            Completed = false,
+                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Quandrant = 4,
+                            TaskName = "Watch TV"
                         });
                 });
 
