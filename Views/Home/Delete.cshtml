@@ -1,0 +1,13 @@
+﻿@{
+    ViewData["Title"] = "Delete Application";
+}
+@model TaskModel
+
+
+<h2>Please Confirm Deletion</h2>
+<h4>Are sure you want to delete @Model.TaskName?</h4>
+<form asp-action="Delete" method="post" class="form-text" asp-controller="Home">
+    <a asp-controller="Home" asp-action="Quadrants" class="btn btn-outline-primary">Go Back</a>
+    <button class="btn btn-danger" type="submit">Delete</button>
+    <input type="hidden" asp-for="TaskId" />
+</form>

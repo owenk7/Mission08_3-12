@@ -6,63 +6,159 @@
 }
 
 <!--Bring in the model-->
-@model Mission08_3_12.Models.Task
-
-<h1> Enter a movie here! </h1>
-
-<!-- This is the form for creating the movie entry-->
-
-<!--
-<div>
-    <form method="post">
-
-        <div asp-validation-summary="All"></div>
-
-        <label> Movie Category: </label>
-        <select asp-for="CategoryId">
-            <option value="">Select a Category</option>
-            @@foreach (Category c in ViewBag.Categories)
-            {
-                <option value="@@c.CategoryId">@@c.CategoryName</option>
-    
-            }
-        </select> <br />
-
-        <label> Movie Title: </label>
-        <input asp-for="Title" /><br />
-
-        <label> Movie Year: </label>
-        <input asp-for="Year" /><br />
-
-        <label> Movie Director: </label>
-        <input asp-for="Director" /><br />
-
-        <label> Movie Rating: </label>
-        <select asp-for="Rating">
-            <option value="">Select</option>
-            <option value="G">G</option>
-            <option value="PG">PG</option>
-            <option value="PG-13">PG-13</option>
-            <option value="R">R</option>
-        </select><br />
+@model List<TaskModel>
 
 
-        <label> Edited: </label>
-        <select asp-for="Edited">
-            <option value="false">Select</option>
-            <option value="true">Yes</option>
-            <option value="false">No</option>
-        </select><br />
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Management Matrix</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <!-- Custom CSS -->
+    <style>
+        .quadrant {
+            border: 1px solid #ccc;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
 
+        .quadrant-title {
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
 
-        <label> Lent to: </label>
-        <input asp-for="LentTo" /><br />
+        .task {
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Time Management Matrix</h1>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="quadrant">
+                    <h2 class="quadrant-title">Urgent and Important</h2>
+                    <table>
+                    <tbody>
+                        @foreach (var x in Model)
+                        {
+                            @if (x.Quadrant == 1) {
+                            <tr>
+                                <td>@x.TaskName</td>
+                                <td>@x.DueDate</td>
+                                <td>@x.Category.CategoryName</td>
+                         
+                                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                            </tr>
+                            }
+                        }
+                    </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="quadrant">
+                    <h2 class="quadrant-title">Not Urgent but Important</h2>
+                    <table>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                @if (x.Quadrant == 2)
+                                {
+                                    <tr>
+                                        <td>@x.TaskName</td>
+                                        <td>@x.DueDate</td>
+                                        <td>@x.Category.CategoryName</td>
 
-        <label> Movie Notes: </label>
-        <input asp-for="Notes" /><br />
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="quadrant">
+                    <h2 class="quadrant-title">Urgent but Not Important</h2>
+                    <table>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                @if (x.Quadrant == 3)
+                                {
+                                    <tr>
+                                        <td>@x.TaskName</td>
+                                        <td>@x.DueDate</td>
+                                        <td>@x.Category.CategoryName</td>
 
-        <button type="submit">Submit Movie Entry</button>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="quadrant">
+                    <h2 class="quadrant-title">Not Urgent and Not Important</h2>
+                    <table>
+                        <tbody>
+                            @foreach (var x in Model)
+                            {
+                                @if (x.Quadrant == 4)
+                                {
+                                    <tr>
+                                        <td>@x.TaskName</td>
+                                        <td>@x.DueDate</td>
+                                        <td>@x.Category.CategoryName</td>
 
-    </form>
+                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
+                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
+                                    </tr>
+                                }
+                            }
+                        </tbody>
+                    </table>
+                </div>
+                </div>
 </div>
-    -->
+        </div>
+    </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -2,7 +2,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 
 
 namespace Mission08_3_12.Models
@@ -16,7 +15,7 @@ namespace Mission08_3_12.Models
         }
 
         //setting connection 
-        public DbSet<Task> Tasks { get; set; }
+        public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder ab)
         { 
@@ -28,8 +27,8 @@ namespace Mission08_3_12.Models
                 new Category { CategoryId = 4, CategoryName = "Church" }
                 );
             //Seeding database
-            ab.Entity<Task>().HasData(
-                new Task
+            ab.Entity<TaskModel>().HasData(
+                new TaskModel
                 {
                     TaskId = 1,
                     TaskName = "Homework for 404",
@@ -38,7 +37,7 @@ namespace Mission08_3_12.Models
                     CategoryId = 2,
                     Completed = false
                 },
-                new Task
+                new TaskModel
                 {
                     TaskId = 2,
                     TaskName = "Authentication Lab",
@@ -47,7 +46,7 @@ namespace Mission08_3_12.Models
                     CategoryId = 2,
                     Completed = false
                 },
-                new Task
+                new TaskModel
                 {
                     TaskId = 3,
                     TaskName = "Watch TV",

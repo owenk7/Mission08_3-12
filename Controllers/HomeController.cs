@@ -1,11 +1,11 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Logging;
 using Mission08_3_12.Models;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
-using System.Threading.Tasks;
 
 
 
@@ -28,7 +28,10 @@ namespace Mission08_3_12.Controllers
 
         public IActionResult Quadrants()
         {
-            return View();
+            var tasks = _taskContext.Tasks
+                .Include(x => x.Category)
+                .OrderBy(x => x.TaskName).ToList();
+            return View(tasks);
         }
 
         [HttpGet]
@@ -42,7 +45,7 @@ namespace Mission08_3_12.Controllers
         
 
         [HttpPost]
-        public IActionResult AddEditTask(Models.Task model)
+        public IActionResult AddEditTask(TaskModel model)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +53,7 @@ namespace Mission08_3_12.Controllers
 
                 _taskContext.SaveChanges();
 
-                return View("TaskView", model);
+                return View("Confirmation", model);
             }
             else
             {
@@ -60,16 +63,16 @@ namespace Mission08_3_12.Controllers
             }
         }
 
-        /*
+        
 
         [HttpGet]
         public IActionResult Edit(int id)
         {
-            ViewBag.Tasks = _taskContext.Tasks.ToList();
+            ViewBag.Categories = _taskContext.Categories.ToList();
 
             var task = _taskContext.Tasks.Single(x => x.TaskId == id);
 
-            return View("TaskView", task);
+            return View("AddEditTask", task);
         }
 
         [HttpPost]
@@ -78,7 +81,7 @@ namespace Mission08_3_12.Controllers
             _taskContext.Update(editTask);
             _taskContext.SaveChanges();
 
-            return RedirectToAction("TaskView");
+            return RedirectToAction("Quadrants");
         }
 
         [HttpGet]
@@ -94,8 +97,8 @@ namespace Mission08_3_12.Controllers
             _taskContext.Tasks.Remove(task);
             _taskContext.SaveChanges();
 
-            return RedirectToAction("TaskList");
+            return RedirectToAction("Quadrants");
         }
-        */
+        
     }
 }

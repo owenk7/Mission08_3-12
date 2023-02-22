@@ -67,7 +67,7 @@ namespace Mission08_3_12.Migrations
                     b.Property<DateTime>("DueDate")
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("Quandrant")
+                    b.Property<int>("Quadrant")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("TaskName")
@@ -87,7 +87,7 @@ namespace Mission08_3_12.Migrations
                             CategoryId = 2,
                             Completed = false,
                             DueDate = new DateTime(2023, 2, 22, 23, 59, 0, 0, DateTimeKind.Unspecified),
-                            Quandrant = 1,
+                            Quadrant = 1,
                             TaskName = "Homework for 404"
                         },
                         new
@@ -96,7 +96,7 @@ namespace Mission08_3_12.Migrations
                             CategoryId = 2,
                             Completed = false,
                             DueDate = new DateTime(2023, 2, 23, 23, 59, 0, 0, DateTimeKind.Unspecified),
-                            Quandrant = 1,
+                            Quadrant = 1,
                             TaskName = "Authentication Lab"
                         },
                         new
@@ -105,7 +105,7 @@ namespace Mission08_3_12.Migrations
                             CategoryId = 1,
                             Completed = false,
                             DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Quandrant = 4,
+                            Quadrant = 4,
                             TaskName = "Watch TV"
                         });
                 });
