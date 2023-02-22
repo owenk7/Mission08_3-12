@@ -10,8 +10,34 @@
 
 <h1> Enter a movie here! </h1>
 
-<!-- This is the form for creating the movie entry-->
 
+
+<center>
+    <div class="row">
+        <div class="col-md-8">
+            <div class="pb-3">
+                Stephen Covey's Time Management Matrix
+            </div>
+            <div class="row">
+                <div class="col-md-1"></div>
+                <div class="col-md-5">Urgent</div>
+                <div class="col-md-5">NotUrgent</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1" style="writing-mode: horizontal-tb">Important</div>
+                <div class="col-md-5">Quadrant 1</div>
+                <div class="col-md-5">Quadrant 2</div>
+            </div>
+            <div class="row">
+                <div class="col-md-1" style="writing-mode: horizontal-tb">Not Important</div>
+                <div class="col-md-5">Quadrant 3</div>
+                <div class="col-md-5">Quadrant 4</div>
+            </div>
+        </div>
+    </div>
+</center>
+
+<!-- This is the form for creating the movie entry-->
 <!--
 <div>
     <form method="post">
@@ -24,7 +50,7 @@
             @@foreach (Category c in ViewBag.Categories)
             {
                 <option value="@@c.CategoryId">@@c.CategoryName</option>
-    
+
             }
         </select> <br />
 
