@@ -19,7 +19,7 @@ namespace Mission08_3_12.Models
         public DbSet<Task> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
         protected override void OnModelCreating(ModelBuilder ab)
-        {
+        { 
             //Seeding database
             ab.Entity<Category>().HasData(
                 new Category { CategoryId = 1, CategoryName = "Home" },
@@ -34,7 +34,7 @@ namespace Mission08_3_12.Models
                     TaskId = 1,
                     TaskName = "Homework for 404",
                     DueDate = DateTime.ParseExact("02/22/2023 11:59 PM", "MM/dd/yyyy h:mm tt", null),
-                    Quandrant = 1,
+                    Quadrant = 1,
                     CategoryId = 2,
                     Completed = false
                 },
@@ -43,7 +43,7 @@ namespace Mission08_3_12.Models
                     TaskId = 2,
                     TaskName = "Authentication Lab",
                     DueDate = DateTime.ParseExact("02/23/2023 11:59 PM", "MM/dd/yyyy h:mm tt", null),
-                    Quandrant = 1,
+                    Quadrant = 1,
                     CategoryId = 2,
                     Completed = false
                 },
@@ -51,7 +51,7 @@ namespace Mission08_3_12.Models
                 {
                     TaskId = 3,
                     TaskName = "Watch TV",
-                    Quandrant = 4,
+                    Quadrant = 4,
                     CategoryId = 1,
                     Completed = false
                 }

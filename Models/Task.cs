@@ -16,7 +16,7 @@ namespace Mission08_3_12.Models
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:yyyy-MM-dd}")]
         public DateTime DueDate { get; set; }
         [Required]
-        public int Quandrant { get; set; }
+        public int Quadrant { get; set; }
         public bool Completed { get; set; }
         //Build foregin key relationship
         public int CategoryId { get; set; }

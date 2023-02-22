@@ -13,6 +13,7 @@
 <h1> Enter a task here! </h1>
 
 <!--Task Form-->
+<center>
     <form method="post">
         <div class="card border-left-primary shadow h-100 py-2" style="background-color:pink; padding:15px; padding-bottom:15px; padding-top:15px">
             <div class="row">
@@ -29,67 +30,44 @@
                     <span asp-validation-for="CategoryId" class="text-danger"></span>
                     <br />
                 </div>
-                <!--Title-->
+                <!--Taskname-->
                 <div class="col">
-                    <label asp-for="Title" style="font-weight:bold">Title</label><br />
-                    <input asp-for="Title" class="form-control" />
-                    <span asp-validation-for="Title" class="text-danger"></span>
+                    <label asp-for="TaskName" style="font-weight:bold">Task Name</label><br />
+                    <input asp-for="TaskName" class="form-control" />
+                    <span asp-validation-for="TaskName" class="text-danger"></span>
                     <br />
                 </div>
             </div>
             <div class="row">
-                <!--Year-->
+                <!--Duedate-->
                 <div class="col">
-                    <label asp-for="Year" style="font-weight:bold">Year</label><br />
-                    <input asp-for="Year" class="form-control" />
-                    <span asp-validation-for="Year" class="text-danger"></span>
+                    <label asp-for="DueDate" style="font-weight:bold">DueDate</label><br />
+                    <input asp-for="DueDate" class="form-control" />
+                    <span asp-validation-for="DueDate" class="text-danger"></span>
                     <br />
                 </div>
-                <!--Director-->
+                <!--Quadrant-->
                 <div class="col">
-                    <label asp-for="Director" style="font-weight:bold">Director</label><br />
-                    <input asp-for="Director" class="form-control" />
-                    <span asp-validation-for="Director" class="text-danger"></span>
-                    <br />
-                </div>
-            </div>
-            <div class="row">
-                <!--Rating-->
-                <div class="col">
-                    <label asp-for="Rating" style="font-weight:bold">Rating</label><br />
-                    <select asp-for="Rating" class="form-control">
-                        <option value="G">G</option>
-                        <option value="PG">PG</option>
-                        <option value="PG-13">PG-13</option>
-                        <option value="R">R</option>
+                    <label asp-for="Quadrant" style="font-weight:bold">Quadrant</label><br />
+                    <select asp-for="Quadrant" class="form-control">
+                        <option value=1>Urgent/Important</option>
+                        <option value=2>Not Urgent/Important</option>
+                        <option value=3>Urgent/Not Important</option>
+                        <option value=4>Not Urgent/Not Important</option>
                     </select>
-                    <span asp-validation-for="Rating" class="text-danger"></span>
+                    <span asp-validation-for="Quadrant" class="text-danger"></span>
                     <br />
                 </div>
-                <!--Edited-->
+            </div>
+            <div class="row">
+                <!--Completed-->
                 <div class="col">
-                    <label asp-for="Edited" style="font-weight:bold">Edited</label><br />
-                    <select asp-for="Edited" class="form-control">
+                    <label asp-for="Completed" style="font-weight:bold">Completed</label><br />
+                    <select asp-for="Completed" class="form-control">
                         <option value="false">No</option>
                         <option value="true">Yes</option>
                     </select>
-                    <span asp-validation-for="Edited" class="text-danger"></span>
-                    <br />
-                </div>
-            </div>
-            <div class="row">
-                <!--Lent to-->
-                <div class="col">
-                    <label asp-for="LentTo" style="font-weight:bold">Lent To</label><br />
-                    <input asp-for="LentTo" class="form-control" />
-                    <span asp-validation-for="LentTo" class="text-danger"></span>
-                    <br />
-                </div>
-                <!--Notes-->
-                <div class="col">
-                    <label asp-for="Notes" style="font-weight:bold">Notes</label><br />
-                    <input asp-for="Notes" class="form-control" />
-                    <span asp-validation-for="Notes" class="text-danger"></span>
+                    <span asp-validation-for="Completed" class="text-danger"></span>
                     <br />
                 </div>
             </div>
