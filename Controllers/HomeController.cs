@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 
 namespace Mission08_3_12.Controllers
 {
+    //controller
     public class HomeController : Controller
     {
         private TaskContext _taskContext { get; set; }
@@ -28,15 +29,18 @@ namespace Mission08_3_12.Controllers
             return View();
         }
 
-        public IActionResult AddTask()
+        [HttpGet]
+        public IActionResult AddEditTask()
         {
             //ViewBag.Tasks = _movieContext.categories.ToList();
 
             return View();
         }
 
+        /*
+
         [HttpPost]
-        public IActionResult AddTask(TaskModel model)
+        public IActionResult AddEditTask(TaskModel model)
         {
             if (ModelState.IsValid)
             {
@@ -88,5 +92,6 @@ namespace Mission08_3_12.Controllers
 
             return RedirectToAction("TaskList");
         }
+        */
     }
 }
