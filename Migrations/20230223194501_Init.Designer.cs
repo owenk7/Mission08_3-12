@@ -9,7 +9,7 @@ using Mission08_3_12.Models;
 namespace Mission08_3_12.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230223054029_Init")]
+    [Migration("20230223194501_Init")]
     partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
