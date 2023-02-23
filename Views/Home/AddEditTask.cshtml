@@ -10,12 +10,14 @@
 <!--Bring in the model-->
 @model Mission08_3_12.Models.TaskModel
 
-<h1> Enter a task here! </h1>
+
 
 <!--Task Form-->
 <center>
+    <h1> Enter a task here! </h1>
     <form method="post">
-        <div class="card border-left-primary shadow h-100 py-2" style="background-color:pink; padding:15px; padding-bottom:15px; padding-top:15px">
+        <input asp-for="TaskId" type="hidden"/>
+        <div class="card border-left-primary shadow h-100 py-2" style="background-color:lightblue; padding:15px; padding-bottom:15px; padding-top:15px">
             <div class="row">
                 <!--Category-->
                 <div class="col">
@@ -41,7 +43,7 @@
             <div class="row">
                 <!--Duedate-->
                 <div class="col">
-                    <label asp-for="DueDate" style="font-weight:bold">DueDate</label><br />
+                    <label asp-for="DueDate" style="font-weight:bold">Due Date</label><br />
                     <input asp-for="DueDate" class="form-control" />
                     <span asp-validation-for="DueDate" class="text-danger"></span>
                     <br />

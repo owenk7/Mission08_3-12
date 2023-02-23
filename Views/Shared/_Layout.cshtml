@@ -9,16 +9,16 @@
     <link rel="stylesheet" href="~/css/site.css" />
     <link href="~/css/nav.css" rel="stylesheet" />
 </head>
-
 <body>
     <!-- add the nav bar-->
-    <nav>
+    <nav style="font-size:17px">
         <ul>
-            <li><a asp-controller="Home" asp-action="Index">Index</a></li>
-            <li><a asp-controller="Home" asp-action="Quadrants">Quadrants</a></li>
-            <li><a asp-controller="Home" asp-action="AddEditTask">Add/Edit Task</a></li>
+            <li><a asp-controller="Home" asp-action="Index">Home</a></li>
+            <li><a asp-controller="Home" asp-action="Quadrants">Tasks</a></li>
+            <li><a asp-controller="Home" asp-action="AddEditTask">Add Task </a></li>
         </ul>
     </nav>
+
     <div>
         @RenderBody()
     </div>

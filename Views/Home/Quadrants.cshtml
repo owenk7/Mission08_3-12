@@ -8,136 +8,119 @@
 <!--Bring in the model-->
 @model List<TaskModel>
 
+<style>
+    .quadrant {
+        border: 1px solid #ccc;
+    }
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Time Management Matrix</title>
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <!-- Custom CSS -->
-    <style>
-        .quadrant {
-            border: 1px solid #ccc;
-            padding: 20px;
-            margin-bottom: 20px;
-        }
+    .quadrant-title {
+        font-weight: bold;
+        margin-bottom: 10px;
+    }
 
-        .quadrant-title {
-            font-weight: bold;
-            margin-bottom: 10px;
-        }
-
-        .task {
-            margin-bottom: 10px;
-        }
-    </style>
-</head>
-<body>
-    <div class="container">
-        <h1>Time Management Matrix</h1>
-        <div class="row">
-            <div class="col-md-6">
-                <div class="quadrant">
-                    <h2 class="quadrant-title">Urgent and Important</h2>
-                    <table>
-                    <tbody>
-                        @foreach (var x in Model)
-                        {
-                            @if (x.Quadrant == 1) {
-                            <tr>
-                                <td>@x.TaskName</td>
-                                <td>@x.DueDate</td>
-                                <td>@x.Category.CategoryName</td>
-                         
-                                <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
-                                <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-                            </tr>
-                            }
-                        }
-                    </tbody>
-                    </table>
-                </div>
+    .task {
+        margin-bottom: 10px;
+    }
+</style>
+<center>
+    <div class="container-fluid">
+        <div class="row" style="background-color:navy; color:white">
+            <div class="col">
+                <h1>Stephen Covey's Time Management Matrix</h1>
             </div>
-            <div class="col-md-6">
-                <div class="quadrant">
-                    <h2 class="quadrant-title">Not Urgent but Important</h2>
-                    <table>
-                        <tbody>
-                            @foreach (var x in Model)
-                            {
-                                @if (x.Quadrant == 2)
-                                {
-                                    <tr>
-                                        <td>@x.TaskName</td>
-                                        <td>@x.DueDate</td>
-                                        <td>@x.Category.CategoryName</td>
-
-                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
-                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
-                </div>
+        </div>
+        <div class="row" style="background-color: lightblue; color: navy">
+            <div class="col-.5" style="padding-right:93px"></div>
+            
+            <div class="col">
+                <h4>Urgent</h4>
+            </div>
+            
+            
+            <div class="col">
+                <h4>Not Urgent</h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-md-6">
-                <div class="quadrant">
-                    <h2 class="quadrant-title">Urgent but Not Important</h2>
-                    <table>
-                        <tbody>
-                            @foreach (var x in Model)
-                            {
-                                @if (x.Quadrant == 3)
-                                {
-                                    <tr>
-                                        <td>@x.TaskName</td>
-                                        <td>@x.DueDate</td>
-                                        <td>@x.Category.CategoryName</td>
-
-                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
-                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+            <div class="col-.5" style="writing-mode: vertical-lr; justify-content:right; padding-bottom:5px; padding-top:5px; background-color:lightblue; color:navy"><h4>Important</h4></div>
+            <div class="col" style="background-color:navy; color:white; text-align:center">
+                <div class="row">
+                    <h3>Quadrant 1</h3>
                 </div>
+                @foreach (var x in Model)
+                {
+                    @if (x.Quadrant == 1)
+                    {
+                        <div class="row">
+                            <div class="col-4">@x.TaskName</div>
+                            <div class="col-3">@x.DueDate</div>
+                            <div class="col-2">@x.Category.CategoryName</div>
+                            <div class="col-1" style="padding-bottom: 50px"><a class="btn btn-primary btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" style="padding-right:6px; color: white;">Edit</a></div>
+                            <div class="col" style="padding-bottom: 50px"><a  class="btn btn-primary btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" style="color: white;">Delete</a></div>
+                        </div>
+                    }
+                }
             </div>
-            <div class="col-md-6">
-                <div class="quadrant">
-                    <h2 class="quadrant-title">Not Urgent and Not Important</h2>
-                    <table>
-                        <tbody>
-                            @foreach (var x in Model)
-                            {
-                                @if (x.Quadrant == 4)
-                                {
-                                    <tr>
-                                        <td>@x.TaskName</td>
-                                        <td>@x.DueDate</td>
-                                        <td>@x.Category.CategoryName</td>
-
-                                        <td><a asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId">Edit</a></td>
-                                        <td><a asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId">Delete</a></td>
-                                    </tr>
-                                }
-                            }
-                        </tbody>
-                    </table>
+            <div class="col" style="background-color: #CFF6FF; color: navy; ">
+                <div class="row">
+                    <h3>Quadrant 2</h3>
                 </div>
-                </div>
-</div>
+                @foreach (var x in Model)
+                {
+                    @if (x.Quadrant == 2)
+                    {
+                        <div class="row">
+                            <div class="col-4">@x.TaskName</div>
+                            <div class="col-3">@x.DueDate</div>
+                            <div class="col-2">@x.Category.CategoryName</div>
+                            <div class="col-1" style="padding-bottom: 50px"><a class="btn btn-light btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" style="padding-right:6px; color: navy;">Edit</a></div>
+                            <div class="col" style="padding-bottom: 50px"><a class="btn btn-light btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" style="color: navy;">Delete</a></div>
+                        </div>
+                    }
+                }
+            </div>
         </div>
-    </body>
-</html>
-
-
-
+        <div class="row">
+            <div class="col-.5" style="writing-mode: vertical-lr; justify-content: right; padding-bottom: 5px; padding-top: 5px; background-color:lightblue; color:navy"><h4>Unimportant</h4></div>
+            <div class="col" style="background-color: #CFF6FF; color: navy; ">
+                <div class="row">
+                    <h3>Quadrant 3</h3>
+                </div>
+                @foreach (var x in Model)
+                {
+                    @if (x.Quadrant == 3)
+                    {
+                        <div class="row">
+                            <div class="col-4">@x.TaskName</div>
+                            <div class="col-3">@x.DueDate</div>
+                            <div class="col-2">@x.Category.CategoryName</div>
+                            <div class="col-1" style="padding-bottom: 50px"><a class="btn btn-light btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" style="padding-right:6px; color: navy;">Edit</a></div>
+                            <div class="col" style="padding-bottom: 50px"><a class="btn btn-light btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" style="color: navy;">Delete</a></div>
+                        </div>
+                    }
+                }
+            </div>
+            <div class="col" style="background-color:navy; color:white">
+                <div class="row">
+                    <h3>Quadrant 4</h3>
+                </div>
+                @foreach (var x in Model)
+                {
+                    @if (x.Quadrant == 4)
+                    {
+                    <div class="row">
+                        <div class="col-4">@x.TaskName</div>
+                        <div class="col-3">@x.DueDate</div>
+                        <div class="col-2">@x.Category.CategoryName</div>
+                        <div class="col-1" style="padding-bottom: 50px"><a class="btn btn-primary btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Edit" asp-route-id="@x.TaskId" style="padding-right:6px; color: white;">Edit</a></div>
+                        <div class="col" style="padding-bottom: 50px"><a class="btn btn-primary btn-sm rounded-pill mt-4" asp-controller="Home" asp-action="Delete" asp-route-id="@x.TaskId" style="color: white;">Delete</a></div>
+                    </div>
+                    }
+                }
+            </div>
+        </div>
+    </div>
+</center>
 
 
 
