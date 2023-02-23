@@ -17,6 +17,7 @@ namespace Mission08_3_12.Models
         //setting connection 
         public DbSet<TaskModel> Tasks { get; set; }
         public DbSet<Category> Categories { get; set; }
+
         protected override void OnModelCreating(ModelBuilder ab)
         { 
             //Seeding database
