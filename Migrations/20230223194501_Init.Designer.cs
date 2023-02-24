@@ -9,8 +9,8 @@ using Mission08_3_12.Models;
 namespace Mission08_3_12.Migrations
 {
     [DbContext(typeof(TaskContext))]
-    [Migration("20230222210413_init")]
-    partial class init
+    [Migration("20230223194501_Init")]
+    partial class Init
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -54,7 +54,7 @@ namespace Mission08_3_12.Migrations
                         });
                 });
 
-            modelBuilder.Entity("Mission08_3_12.Models.Task", b =>
+            modelBuilder.Entity("Mission08_3_12.Models.TaskModel", b =>
                 {
                     b.Property<int>("TaskId")
                         .ValueGeneratedOnAdd()
@@ -66,7 +66,7 @@ namespace Mission08_3_12.Migrations
                     b.Property<bool>("Completed")
                         .HasColumnType("INTEGER");
 
-                    b.Property<DateTime>("DueDate")
+                    b.Property<DateTime?>("DueDate")
                         .HasColumnType("TEXT");
 
                     b.Property<int>("Quadrant")
@@ -106,13 +106,12 @@ namespace Mission08_3_12.Migrations
                             TaskId = 3,
                             CategoryId = 1,
                             Completed = false,
-                            DueDate = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
                             Quadrant = 4,
                             TaskName = "Watch TV"
                         });
                 });
 
-            modelBuilder.Entity("Mission08_3_12.Models.Task", b =>
+            modelBuilder.Entity("Mission08_3_12.Models.TaskModel", b =>
                 {
                     b.HasOne("Mission08_3_12.Models.Category", "Category")
                         .WithMany()

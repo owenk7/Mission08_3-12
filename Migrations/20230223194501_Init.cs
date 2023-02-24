@@ -3,7 +3,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace Mission08_3_12.Migrations
 {
-    public partial class init : Migration
+    public partial class Init : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -27,7 +27,7 @@ namespace Mission08_3_12.Migrations
                     TaskId = table.Column<int>(nullable: false)
                         .Annotation("Sqlite:Autoincrement", true),
                     TaskName = table.Column<string>(nullable: false),
-                    DueDate = table.Column<DateTime>(nullable: false),
+                    DueDate = table.Column<DateTime>(nullable: true),
                     Quadrant = table.Column<int>(nullable: false),
                     Completed = table.Column<bool>(nullable: false),
                     CategoryId = table.Column<int>(nullable: false)
@@ -66,7 +66,7 @@ namespace Mission08_3_12.Migrations
             migrationBuilder.InsertData(
                 table: "Tasks",
                 columns: new[] { "TaskId", "CategoryId", "Completed", "DueDate", "Quadrant", "TaskName" },
-                values: new object[] { 3, 1, false, new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified), 4, "Watch TV" });
+                values: new object[] { 3, 1, false, null, 4, "Watch TV" });
 
             migrationBuilder.InsertData(
                 table: "Tasks",

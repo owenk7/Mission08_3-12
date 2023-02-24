@@ -39,7 +39,7 @@ namespace Mission08_3_12.Controllers
         {
             ViewBag.Categories = _taskContext.Categories.ToList();
 
-            return View();
+            return View(new TaskModel());
         }
 
         
@@ -57,7 +57,7 @@ namespace Mission08_3_12.Controllers
             }
             else
             {
-                ViewBag.Tasks = _taskContext.Tasks.ToList();
+                ViewBag.Categories = _taskContext.Categories.ToList();
 
                 return View(model);
             }
@@ -67,6 +67,7 @@ namespace Mission08_3_12.Controllers
 
         [HttpGet]
         public IActionResult Edit(int id)
+
         {
             ViewBag.Categories = _taskContext.Categories.ToList();
 
@@ -78,11 +79,20 @@ namespace Mission08_3_12.Controllers
         [HttpPost]
         public IActionResult Edit(TaskModel editTask)
         {
-            _taskContext.Update(editTask);
-            _taskContext.SaveChanges();
+            if (ModelState.IsValid)
+            {
+                _taskContext.Update(editTask);
+                _taskContext.SaveChanges();
 
-            return RedirectToAction("Quadrants");
+                return RedirectToAction("Quadrants");
+            }
+            else
+            {
+                ViewBag.Categories = _taskContext.Categories.ToList();
+                return View("AddEditTask");
+            }
         }
+
 
         [HttpGet]
         public IActionResult Delete(int id)
